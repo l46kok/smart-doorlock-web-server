@@ -1,39 +1,58 @@
-﻿using System;
+﻿using Nancy.Hosting.Self;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using uPLibrary.Networking.M2Mqtt;
-using uPLibrary.Networking.M2Mqtt.Communication;
-
 namespace smart_doorlock_web_server
 {
     class Program
     {
+        private const string WEB_SERVER_PORT = "1234";
+        private const string TERMINATE_STRING = "/Terminate";
 
         static void Main(string[] args)
         {
-
+            MqttBroker mqttBroker = MqttBroker.Instance;
 #if TRACE
             //MqttUtility.Trace.TraceLevel = MqttUtility.TraceLevel.Verbose | MqttUtility.TraceLevel.Frame;
             //MqttUtility.Trace.TraceListener = (f, a) => System.Diagnostics.Trace.WriteLine(System.String.Format(f, a));
 #endif
-            MqttSettings settings = MqttSettings.Instance;
-            MqttTcpCommunicationLayer cLayer = new MqttTcpCommunicationLayer(settings.Port);
-            // create and start broker
-            MqttBroker broker = new MqttBroker(cLayer, settings);
+            mqttBroker.Start();
+            
+            var uri = new Uri("http://localhost:" + WEB_SERVER_PORT + "/");
+            var config = new HostConfiguration
+            {
+                UrlReservations = { CreateAutomatically = true },
+                AllowChunkedEncoding = false
+            };
 
-            cLayer.ClientConnected += cLayer_ClientConnected;
-                        
-            broker.Start();
-            Console.ReadLine();
-            broker.Stop();
-        }
+            var host = new NancyHost(config, uri);
 
-        static void cLayer_ClientConnected(object sender, MqttClientConnectedEventArgs e)
-        {
-            Console.WriteLine("Client Connected");
+            try
+            {
+                host.Start();
+
+                Console.Write("Smart Doorlock Web Server\n" +
+                    "\t\"" + uri + "\"\n" +
+                    "To quit, input \"" + TERMINATE_STRING + "\".\n\n");
+                do Console.Write("> "); while (Console.ReadLine() != TERMINATE_STRING);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Unhandled exception has been occured!\n"
+                    + e.Message);
+                Console.ReadKey(true);
+            }
+            finally
+            {
+                host.Stop();
+                mqttBroker.Stop();
+            }
+
+
+
         }
     }
 }
