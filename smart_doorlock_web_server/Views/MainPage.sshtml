@@ -1,1 +1,45 @@
-﻿HELLO WORLD
+﻿@Master['MasterPage']
+
+@Section['Content']
+<link href="./Content/css/MainPage.css" rel="stylesheet">
+<!-- Begin page content -->
+<div class="container">
+	<div class="page-header">
+		<h1>Doorlock Status</h1>
+	</div>
+	
+	<table id="myTable" class="tablesorter"> 
+		<thead> 
+			<tr> 
+				<th>Doorlock No.</th> 
+				<th>IP Address</th> 
+				<th>Port</th> 
+				<th>Status</th> 
+			</tr> 
+		</thead> 
+		<tbody class="centerText"> 
+			<tr> 
+				<td rowspan="3">1</td>
+				<td>192.168.1.1</td>
+				<td>1234</td>
+				<td>Active</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="txtInput"><input type="text" class="form-control" id="usr" placeholder="Topic"></td>
+				<td><button type="button" class="btn btn-success btnStyle">Subscribe</button></td>
+			</tr>
+			<tr>
+				<td class="txtInput"><input type="text" class="form-control" id="usr" placeholder="Topic"></td>
+				<td class="txtInput"><input type="text" class="form-control" id="usr" placeholder="Message"></td>
+				<td><button type="button" class="btn btn-info btnStyle">Publish</button></td>
+			</tr>
+		</tbody> 
+	</table> 
+	
+	<h1>MQTT Log</h1>
+	<textarea readonly class="form-control" rows="15"></textarea>
+</div>
+
+<script language="JavaScript" src="/Content/scripts/jquery.tablesorter.js"></script>
+<script language="JavaScript" src="/Content/scripts/MainPage.js"></script>
+@EndSection

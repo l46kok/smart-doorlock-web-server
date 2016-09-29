@@ -13,7 +13,7 @@ namespace smart_doorlock_web_server
         {
             Get["/"] = _ =>
             {
-                MqttBroker.Instance.Publish("/cc3200/ToggleLEDCmdL1", "Test2");
+                //MqttBroker.Instance.Publish("/cc3200/ToggleLEDCmdL1", "Test2");
                 return View["Views/MainPage.sshtml"];
             };
         }
