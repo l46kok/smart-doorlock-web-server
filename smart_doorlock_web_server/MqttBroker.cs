@@ -122,6 +122,21 @@ namespace smart_doorlock_web_server
             MqttMsgPublish publishMsg = new MqttMsgPublish(topic, Encoding.UTF8.GetBytes(message),false,1,false);
             publisherManager.Publish(publishMsg);
         }
+        public MqttClientCollection GetClientList()
+        {
+            return clients;
+        }
+
+        public bool Subscribe(string clientId, string topic)
+        {
+            MqttClient client = GetClient(clientId);
+            if (client == null)
+                return false;
+            byte[] qosLevel = new byte[] {MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE};
+            string[] topicParam = new string[] { topic };
+            client.Subscribe(topicParam,qosLevel);
+            return true;
+        }
 
         /// <summary>
         /// Close a client

@@ -9,12 +9,33 @@ namespace smart_doorlock_web_server
 {
     public class WebServerMainModule : NancyModule
     {
+        MainPageSL mainPageSl = MainPageSL.Instance;
+        MqttBroker mqttBroker = MqttBroker.Instance;
         public WebServerMainModule()
         {
             Get["/"] = _ =>
             {
                 //MqttBroker.Instance.Publish("/cc3200/ToggleLEDCmdL1", "Test2");
-                return View["Views/MainPage.sshtml"];
+                return View["Views/MainPage.sshtml",mainPageSl.GetMainPageData()];
+            };
+
+            Post["/Subscribe"] = x =>
+            {
+                string clientId = Request.Form.clientId;
+                string topic = Request.Form.topic;
+                if (mqttBroker.Subscribe(clientId, topic))
+                    return "OK";
+                return "Fail";
+            };
+
+            Post["/Publish"] = x =>
+            {
+                string clientId = Request.Form.clientId;
+                string topic = Request.Form.topic;
+                string message = Request.Form.message;
+                mqttBroker.Publish(topic, message);
+                
+                return "OK";
             };
         }
     }

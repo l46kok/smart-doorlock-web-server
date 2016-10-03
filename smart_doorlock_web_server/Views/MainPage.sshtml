@@ -12,32 +12,35 @@
 		<thead> 
 			<tr> 
 				<th>Doorlock No.</th> 
-				<th>IP Address</th> 
-				<th>Port</th> 
+				<th>Client Id</th> 
+				<th>Protocol Ver.</th> 
 				<th>Status</th> 
 			</tr> 
 		</thead> 
 		<tbody class="centerText"> 
+			@Each.Model
 			<tr> 
-				<td rowspan="3">1</td>
-				<td>192.168.1.1</td>
-				<td>1234</td>
+				<td rowspan="3">@Current.DoorlockNo</td>
+				<td>@Current.ClientId</td>
+				<td>@Current.ProtocolVer</td>
 				<td>Active</td>
 			</tr>
 			<tr>
-				<td colspan="2" class="txtInput"><input type="text" class="form-control" id="usr" placeholder="Topic"></td>
-				<td><button type="button" class="btn btn-success btnStyle">Subscribe</button></td>
+				<td colspan="2" class="txtInput"><input type="text" id="inputSubscribeTopic@Current.ClientId" class="form-control" id="usr" placeholder="Topic"></td>
+				<td><button id="btnSubscribe" data-cid="@Current.ClientId" type="button" class="btn btn-success btnStyle">Subscribe</button></td>
 			</tr>
 			<tr>
-				<td class="txtInput"><input type="text" class="form-control" id="usr" placeholder="Topic"></td>
-				<td class="txtInput"><input type="text" class="form-control" id="usr" placeholder="Message"></td>
-				<td><button type="button" class="btn btn-info btnStyle">Publish</button></td>
+				<td class="txtInput"><input id="inputPublishTopic@Current.ClientId" type="text" class="form-control" id="usr" placeholder="Topic" value="/SmartDoorlock/DoorControl"></td>
+				<td class="txtInput"><input id="inputPublishMessage@Current.ClientId" type="text" class="form-control" id="usr" placeholder="Message" value="Open"></td>
+				<td><button id="btnPublish" data-cid="@Current.ClientId" type="button" class="btn btn-info btnStyle">Publish</button></td>
 			</tr>
+			@EndEach
+			
 		</tbody> 
 	</table> 
 	
 	<h1>MQTT Log</h1>
-	<textarea readonly class="form-control" rows="15"></textarea>
+	<textarea id="mqttLog" readonly class="form-control" rows="15"></textarea>
 </div>
 
 <script language="JavaScript" src="/Content/scripts/jquery.tablesorter.js"></script>

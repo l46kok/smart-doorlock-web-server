@@ -50,9 +50,6 @@ namespace smart_doorlock_web_server
                 host.Stop();
                 mqttBroker.Stop();
             }
-
-
-
         }
     }
 }
