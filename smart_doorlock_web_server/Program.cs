@@ -9,7 +9,7 @@ namespace smart_doorlock_web_server
 {
     class Program
     {
-        private const string WEB_SERVER_PORT = "1234";
+        private const string WEB_SERVER_PORT = "8203";
         private const string TERMINATE_STRING = "/Terminate";
 
         static void Main(string[] args)
