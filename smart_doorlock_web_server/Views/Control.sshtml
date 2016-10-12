@@ -1,7 +1,7 @@
 ﻿@Master['MasterPage']
 
 @Section['Content']
-<link href="./Content/css/MainPage.css" rel="stylesheet">
+<link href="./Content/css/Control.css" rel="stylesheet">
 <!-- Begin page content -->
 <div class="container">
 	<div class="page-header">
@@ -44,5 +44,5 @@
 </div>
 
 <script language="JavaScript" src="/Content/scripts/jquery.tablesorter.js"></script>
-<script language="JavaScript" src="/Content/scripts/MainPage.js"></script>
+<script language="JavaScript" src="/Content/scripts/Control.js"></script>
 @EndSection

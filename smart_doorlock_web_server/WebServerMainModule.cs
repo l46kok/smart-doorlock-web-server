@@ -15,8 +15,12 @@ namespace smart_doorlock_web_server
         {
             Get["/"] = _ =>
             {
-                //MqttBroker.Instance.Publish("/cc3200/ToggleLEDCmdL1", "Test2");
-                return View["Views/MainPage.sshtml",mainPageSl.GetMainPageData()];
+                return View["Views/About.sshtml"];
+            };
+
+            Get["/Control"] = _ =>
+            {
+                return View["Views/Control.sshtml", mainPageSl.GetMainPageData()];
             };
 
             Post["/Subscribe"] = x =>
