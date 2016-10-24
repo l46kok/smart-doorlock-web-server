@@ -34,35 +34,104 @@
 		<span class="sr-only">Next</span>
 	  </a>
 	</div>
-	<ul class="nav nav-pills" role="tablist" id="myPill">
-	  <li role="presentation" class="active"><a href="#all" aria-controls="home" role="tab" data-toggle="tab">Show All</a></li>
-	  <li role="presentation"><a href="#cars" aria-controls="profile" role="tab" data-toggle="tab">Cars</a></li>
+	<ul class="nav nav-pills nav-justified" role="tablist" id="myPill">
+	  <li role="presentation" class="active"><a href="#about" aria-controls="home" role="tab" data-toggle="tab">About</a></li>
+	  <li role="presentation"><a href="#spec" aria-controls="profile" role="tab" data-toggle="tab">Project Spec.</a></li>
+	  <li role="presentation"><a href="#circuit" aria-controls="profile" role="tab" data-toggle="tab">Circuit</a></li>
+	  <li role="presentation"><a href="#source" aria-controls="profile" role="tab" data-toggle="tab">Source Code</a></li>
+	  <li role="presentation"><a href="#demo" aria-controls="profile" role="tab" data-toggle="tab">Demo</a></li>
+	  <li role="presentation"><a href="#files" aria-controls="profile" role="tab" data-toggle="tab">Documentation</a></li>
 	</ul>
 
-	<div class="tab-content">
-	  <div role="tabpanel" class="tab-pane active" id="all">Sample of All</div>  
-	  <div role="tabpanel" class="tab-pane" id="cars">Sample for Cars</div>
+	<div class="jumbotron">
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="about">
+				<h2>What is Smart Doorlock?</h2>
+				<br/>
+				<p class="lead">Smart Doorlock is a specialized electronic doorlock that takes advantage of NFC & IOT technology to better secure your home.</p>
+				<p class="lead">Smart Doorlock allows the user to:</p>
+				<ul>
+					<li>Operate the doorlock using Android phones via NFC P2P functionality</li>
+					<li>Operate the doorlock using PC, tablets and any smart phones over the internet using IoT technology</li>
+					<li>Grant and revoke access permissions to each individual personnels</li>
+					<li>Manage access logs for security audits</li>
+					<li>and more...</li>
+				</ul>
+				<br/>
+				<br/>
+				<br/>
+				Brought to you by Sokwhan Huh. All copyrights reserved.</p>
+			</div>  
+			<div role="tabpanel" class="tab-pane" id="spec">
+				<h2>Project Specifications</h2>
+				<br/>
+				<ul>
+					<li>Interface via NFC in P2P mode using Android Beam technology</li>
+					<li>Interface via IoT to a cloud server over MQTT Protocol</li>
+					<li>NFC communication range: 5 cm maximum (from smartphone to Smart Doorlock)</li>
+					<li>Wi-Fi communication range: 50 meters maximum (TX 14.5dBM, RX -74.0dBM at 54 OFDM)</li>
+					<li>AC Power (100V-240V @0.8A 50-60Hz) with DC battery backup</li>
+					<li>Minimum backup battery life of 24 hours</li>
+					<li>Supported Android versions: 4.0 (Ice Cream Sandwich) and above</li>
+				</ul>
+				<br/>
+				<h2>Block Diagram</h2>
+				<br/>
+				<img src="/Content/images/BlockDiagram.png">
+				<br/>
+				<h2>Hardware Components</h2>
+				<br/>
+				<ul>
+					<li>Microcontroller: Texas Instruments CC3200</li>
+					<li>NFC Transceiver IC: Texas Instruments TRF7970A</li>
+					<li>Keypad: Storm Interface’s Storm 720GFXI Series (7207-121W20)</li>
+					<li>LCD: Newhaven's NHD-0420D3Z-NSW-BBW-V3-ND </li>
+					<li>Power Supply: XP Power's ECL30UD03-S 5V/12V 30W Dual Output</li>
+					<li>Solenoid Motor: Lock-style Solenoid - 12VDC</li>
+				</ul>
+				<h2>Software</h2>
+				<br/>
+				<ul>
+					<li>Programming Language: C (Microcontroller), Java (Android Application), C# (Web Server)</li>
+					<li>Web Server Framework: NancyFX</li>
+					<li>Web Server Database: MySQL</li>
+				</ul>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="circuit">
+				<h2>Circuit Diagram</h2>
+				<br/>
+				Coming soon...
+			</div>
+			<div role="tabpanel" class="tab-pane" id="source">
+				<h2>Source Codes</h2>
+				<br/>
+				<p class="lead">Smart Doorlock is an open source project. All source codes are available on bitbucket repository:</p>
+				<ul>
+					<li>Smart Doorlock (MCU): <a href="https://bitbucket.org/l46kok/smart-doorlock">https://bitbucket.org/l46kok/smart-doorlock</a></li>
+					<li>Smart Doorlock Web Server: <a href="https://bitbucket.org/l46kok/smart-doorlock-web-server">https://bitbucket.org/l46kok/smart-doorlock-web-server</a></li>
+					<li>Smart Doorlock Android Application: <a href="https://bitbucket.org/l46kok/smart-doorlock-android-app">https://bitbucket.org/l46kok/smart-doorlock-android-app</a></li>
+				</ul>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="demo">
+				<h2>Demo Videos</h2>
+				<br/>
+				<p class="lead">NFC Operation</p>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/rgIzpaI3vP8" frameborder="0" allowfullscreen></iframe>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/iMTLewEwC10" frameborder="0" allowfullscreen></iframe>
+				<br/>
+				<p class="lead">IoT Operation</p>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/ahTHVgW4CEE" frameborder="0" allowfullscreen></iframe>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/Ru_4vKUZAZM" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="files">
+				<h2>Documentation</h2>
+				<br/>
+				<p class="lead">Presentation</p>
+				<ul>
+					<li><a href="/Content/files/Smart Doorlock Presentation.pptx">PPT presentation</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
-<!--	<div class="jumbotron">
-		<h2>What is Smart Doorlock?</h2>
-		<br/>
-		<p class="lead">UFWFATE.NET is a statistics site for a Warcraft III custom game known as Fate / Another III.</p>
-		<p class="lead">Game data is collected on a real time basis to provide users with:</p>
-		<ul>
-		<li>Match Results</li>
-		<li>Servant Analytics</li>
-		<li>Player Statistics</li>
-		<li>Replays</li>
-		<li>and more...</li>
-		</ul>
-		<br/>
-		<p class="lead text-center">Visit channel Clan UFW at USEast server to play Fate / Another III</p>
-		<br/>
-		<p class="text-center"><a class="btn btn-lg btn-success" href="http://fateanother.wikia.com/wiki/New_Player_Guide" role="button">Learn more about the game</a></p>
-		<br/>
-		<br/>
-		<br/>
-		Brought to you by Sokwhan Huh (l46kok@USEast). All copyrights reserved.</p>
-	</div>-->
 </div>
 @EndSection
