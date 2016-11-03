@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace smart_doorlock_web_server.Database
 {
-    public class SDAccessLogDAL
+    public static class SDAccessLogDAL
     {
-        public void InsertAccess(SDAccessLogDTO data)
+        public static void InsertAccess(SDAccessLogDTO data)
         {
             try
             {
                 using (SDDatabase.Instance.Connection)
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO access_log(AccessDateTime, Type, Data) VALUES(@acdt,@type,@data)"))
+                    SDDatabase.Instance.Connection.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO access_log(AccessDateTime, Type, Data) VALUES(@acdt,@type,@data)", SDDatabase.Instance.Connection))
                     {
                         cmd.Parameters.AddWithValue("@acdt", data.AccessDateTime);
                         cmd.Parameters.AddWithValue("@type", data.Type);
@@ -31,14 +32,15 @@ namespace smart_doorlock_web_server.Database
             }
         }
 
-        public IEnumerable<SDAccessLogDTO> GetAccessLog()
+        public static IEnumerable<SDAccessLogDTO> GetAccessLog()
         {
             List<SDAccessLogDTO> accessList = new List<SDAccessLogDTO>(); 
             try
             {
                 using (SDDatabase.Instance.Connection)
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT LogID, AccessDateTime, Type, Data FROM access_log"))
+                    SDDatabase.Instance.Connection.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT LogID, AccessDateTime, Type, Data FROM access_log", SDDatabase.Instance.Connection))
                     {
                         cmd.ExecuteNonQuery();
                         using (MySqlDataAdapter adap = new MySqlDataAdapter())
