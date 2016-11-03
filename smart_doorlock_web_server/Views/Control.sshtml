@@ -26,7 +26,7 @@
 				<td>Active</td>
 			</tr>
 			<tr>
-				<td colspan="2" class="txtInput"><input type="text" id="inputSubscribeTopic@Current.ClientId" class="form-control" id="usr" placeholder="Topic"></td>
+				<td colspan="2" class="txtInput"><input type="text" id="inputSubscribeTopic@Current.ClientId" class="form-control" id="usr" value="/SmartDoorlock/Log" placeholder="Topic"></td>
 				<td><button id="btnSubscribe" data-cid="@Current.ClientId" type="button" class="btn btn-success btnStyle">Subscribe</button></td>
 			</tr>
 			<tr>

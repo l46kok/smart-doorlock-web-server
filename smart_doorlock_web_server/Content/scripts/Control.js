@@ -8,7 +8,7 @@ $(document).ready(function () {
     $("#btnSubscribe").click(function () {
         var btnElement = $(this);
         var clientId = btnElement.attr("data-cid");
-        var txtElement = $("#inputSubscribe" + clientId);
+        var txtElement = $("#inputSubscribeTopic" + clientId);
         var data = { "clientId": clientId, "topic": txtElement.val() }
         $.ajax({
             type: "POST",

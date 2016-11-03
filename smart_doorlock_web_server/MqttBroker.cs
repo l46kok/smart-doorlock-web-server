@@ -207,7 +207,7 @@ namespace smart_doorlock_web_server
             //          It should be set in the outgoing PUBLISH message based on transmission for each subscriber
             MqttMsgPublish publish = new MqttMsgPublish(e.Topic, e.Message, false, e.QosLevel, e.Retain);
 
-            Console.WriteLine("Publish Received: [{0},{1}]",e.Topic,e.Message);
+            Console.WriteLine("Publish Received: [{0},{1}]",e.Topic,Encoding.ASCII.GetString(e.Message));
 
             // publish message through publisher manager
             this.publisherManager.Publish(publish);
