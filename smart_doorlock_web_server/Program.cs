@@ -1,4 +1,5 @@
 ﻿using Nancy.Hosting.Self;
+using smart_doorlock_web_server.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,24 @@ namespace smart_doorlock_web_server
     {
         private const string WEB_SERVER_PORT = "8203";
         private const string TERMINATE_STRING = "/Terminate";
-
+        private const string DEFAULT_CONFIG_FILE_PATH = "config.cfg";
         static void Main(string[] args)
         {
+
+            ConfigHandler configHandler = new ConfigHandler(DEFAULT_CONFIG_FILE_PATH);
+            if (!configHandler.IsConfigFileValid())
+                Console.WriteLine("Error loading default config file: {0}", DEFAULT_CONFIG_FILE_PATH);
+            else
+            {
+                Console.WriteLine("Loading default config file: {0}", DEFAULT_CONFIG_FILE_PATH);
+                configHandler.LoadConfig();
+                SDDatabase.Instance.LoadConnectionInfo(configHandler.DatabaseServer,
+                                                        configHandler.DatabasePort,
+                                                        configHandler.DatabaseUserName,
+                                                        configHandler.DatabasePassword,
+                                                        configHandler.DatabaseName);
+            }
+
             MqttBroker mqttBroker = MqttBroker.Instance;
 #if TRACE
             //MqttUtility.Trace.TraceLevel = MqttUtility.TraceLevel.Verbose | MqttUtility.TraceLevel.Frame;

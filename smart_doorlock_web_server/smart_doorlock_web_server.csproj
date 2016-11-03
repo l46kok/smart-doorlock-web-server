@@ -35,6 +35,9 @@
     <Reference Include="GnatMQ.Net">
       <HintPath>..\packages\GnatMQ.1.1.0.0\lib\net45\GnatMQ.Net.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.1.4.3\lib\net40\Nancy.dll</HintPath>
     </Reference>
@@ -50,6 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigHandler.cs" />
+    <Compile Include="Database\SDAccessLogDAL.cs" />
+    <Compile Include="Database\SDAccessLogDTO.cs" />
+    <Compile Include="Database\SDDatabase.cs" />
     <Compile Include="MainPageData.cs" />
     <Compile Include="MainPageSL.cs" />
     <Compile Include="MqttBroker.cs" />
@@ -59,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="config.cfg" />
     <None Include="Content\files\Smart Doorlock Presentation.pptx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
