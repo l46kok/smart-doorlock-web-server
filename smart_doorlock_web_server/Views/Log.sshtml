@@ -1,0 +1,33 @@
+﻿@Master['MasterPage']
+
+@Section['Content']
+<link href="./Content/css/Log.css" rel="stylesheet">
+<!-- Begin page content -->
+<div class="container">
+	<div class="page-header">
+		<h1>Access Log</h1>
+	</div>
+	
+	<table id="logTable" class="tablesorter"> 
+		<thead> 
+		<tr> 
+			<th>Access Date</th> 
+			<th>Type</th> 
+			<th>Access ID</th> 
+		</tr> 
+		</thead> 
+		<tbody class="centerText"> 
+		@Each.Model
+		<tr> 
+			<td>@Current.AccessDateTime</td> 
+			<td><b>@Current.Type</b></td> 
+			<td>@Current.AccessID</td> 
+		</tr> 
+		@EndEach
+		</tbody> 
+	</table> 
+</div>
+
+<script language="JavaScript" src="/Content/scripts/jquery.tablesorter.js"></script>
+<script language="JavaScript" src="/Content/scripts/Log.js"></script>
+@EndSection

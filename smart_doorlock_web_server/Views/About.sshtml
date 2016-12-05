@@ -115,6 +115,9 @@
 			<div role="tabpanel" class="tab-pane" id="demo">
 				<h2>Demo Videos</h2>
 				<br/>
+				<p class="lead">Full Operation</p>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/UvEJHDJju3o" frameborder="0" allowfullscreen></iframe>
+				<br/>
 				<p class="lead">NFC Operation</p>
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/rgIzpaI3vP8" frameborder="0" allowfullscreen></iframe>
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/iMTLewEwC10" frameborder="0" allowfullscreen></iframe>

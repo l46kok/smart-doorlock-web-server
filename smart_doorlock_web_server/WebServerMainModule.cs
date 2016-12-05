@@ -10,6 +10,7 @@ namespace smart_doorlock_web_server
     public class WebServerMainModule : NancyModule
     {
         MainPageSL mainPageSl = MainPageSL.Instance;
+        LogSL logSl = LogSL.Instance;
         MqttBroker mqttBroker = MqttBroker.Instance;
         public WebServerMainModule()
         {
@@ -21,6 +22,11 @@ namespace smart_doorlock_web_server
             Get["/Control"] = _ =>
             {
                 return View["Views/Control.sshtml", mainPageSl.GetMainPageData()];
+            };
+
+            Get["/Log"] = _ =>
+            {
+                return View["Views/Log.sshtml", logSl.GetAccessLog()];
             };
 
             Post["/Subscribe"] = x =>
