@@ -9,6 +9,7 @@
 		<li data-target="#aboutCarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#aboutCarousel" data-slide-to="1"></li>
 		<li data-target="#aboutCarousel" data-slide-to="2"></li>
+		<li data-target="#aboutCarousel" data-slide-to="3"></li>
 	  </ol>
 
 	  <!-- Wrapper for slides -->
@@ -21,6 +22,9 @@
 		</div>
 		<div class="item">
 		  <img src="/Content/images/AboutCarousel3.png">
+		</div>
+		<div class="item">
+		  <img src="/Content/images/AboutCarousel4.png">
 		</div>
 	  </div>
 
@@ -51,7 +55,7 @@
 				<p class="lead">Smart Doorlock is a specialized electronic doorlock that takes advantage of NFC & IOT technology to better secure your home.</p>
 				<p class="lead">Smart Doorlock allows the user to:</p>
 				<ul>
-					<li>Operate the doorlock using Android phones via NFC P2P functionality</li>
+					<li>Operate the doorlock using Android phones via NFC</li>
 					<li>Operate the doorlock using PC, tablets and any smart phones over the internet using IoT technology</li>
 					<li>Grant and revoke access permissions to each individual personnels</li>
 					<li>Manage access logs for security audits</li>
@@ -66,13 +70,13 @@
 				<h2>Project Specifications</h2>
 				<br/>
 				<ul>
-					<li>Interface via NFC in P2P mode using Android Beam technology</li>
+					<li>Interface via NFC in using Android Host-Based Card Emulation technology</li>
 					<li>Interface via IoT to a cloud server over MQTT Protocol</li>
 					<li>NFC communication range: 5 cm maximum (from smartphone to Smart Doorlock)</li>
 					<li>Wi-Fi communication range: 50 meters maximum (TX 14.5dBM, RX -74.0dBM at 54 OFDM)</li>
-					<li>AC Power (100V-240V @0.8A 50-60Hz) with DC battery backup</li>
-					<li>Minimum backup battery life of 24 hours</li>
-					<li>Supported Android versions: 4.0 (Ice Cream Sandwich) and above</li>
+					<li>Powered by 9V AC/DC wall adapter</li>
+					<li>6xAA rechargeable battery support</li>
+					<li>Supported Android versions: 4.4 (Kitkat) and above</li>
 				</ul>
 				<br/>
 				<h2>Block Diagram</h2>
@@ -84,9 +88,8 @@
 				<ul>
 					<li>Microcontroller: Texas Instruments CC3200</li>
 					<li>NFC Transceiver IC: Texas Instruments TRF7970A</li>
-					<li>Keypad: Storm Interface’s Storm 720GFXI Series (7207-121W20)</li>
+					<li>Keypad: Grayhill 4x1 87FC3-201 transparent keypad</li>
 					<li>LCD: Newhaven's NHD-0420D3Z-NSW-BBW-V3-ND </li>
-					<li>Power Supply: XP Power's ECL30UD03-S 5V/12V 30W Dual Output</li>
 					<li>Solenoid Motor: Lock-style Solenoid - 12VDC</li>
 				</ul>
 				<h2>Software</h2>
@@ -100,7 +103,18 @@
 			<div role="tabpanel" class="tab-pane" id="circuit">
 				<h2>Circuit Diagram</h2>
 				<br/>
-				Coming soon...
+				<p class="lead">CC3200 (Microcontroller)</p>
+				<img src="/Content/images/Schematic1.png">
+				<br/>
+				<p class="lead">TRF7970A (NFC Transceiver IC)</p>
+				<img src="/Content/images/Schematic2.png">
+				<br/>
+				<p class="lead">Driver Circuit (LCD, solenoid lock, keypad & buzzer)</p>
+				<img src="/Content/images/Schematic3.png">
+				<br/>
+				<p class="lead">Driver PCB (LCD, solenoid lock, keypad & buzzer)</p>
+				<img src="/Content/images/PCB.png">
+				<br/>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="source">
 				<h2>Source Codes</h2>
@@ -129,9 +143,21 @@
 			<div role="tabpanel" class="tab-pane" id="files">
 				<h2>Documentation</h2>
 				<br/>
+				<p class="lead">Project Report</p>
+				<ul>
+					<li><a href="/Content/files/Smart Doorlock Final Project Report.pdf">Final Project Report (.pdf)</a></li>
+				</ul>
+				<br/>
 				<p class="lead">Presentation</p>
 				<ul>
-					<li><a href="/Content/files/Smart Doorlock Presentation.pptx">PPT presentation</a></li>
+					<li><a href="/Content/files/Smart Doorlock Presentation.pptx">Presentation (.pptx)</a></li>
+					<li><a href="/Content/files/Smart Doorlock Poster.pptx">Poster (.pptx)</a></li>
+				</ul>
+				<br/>
+				<p class="lead">Miscellaneous</p>
+				<ul>
+					<li><a href="/Content/files/Smart Doorlock Circuits & PCB.zip">Circuits & PCB (.zip)</a></li>
+					<li><a href="/Content/files/Smart Doorlock Solidworks Files.zip">Packaging design, Solidworks 2016(.zip)</a></li>
 				</ul>
 			</div>
 		</div>
